@@ -1,0 +1,29 @@
+body{
+    background-image: url(bobwebsitepossibly.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+/* CSS to center iframe and set its dimensions */
+#iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:101vh; /* Full viewport height */
+    width: 101vw;  /* Full viewport width */
+   
+  }
+  
+  iframe {
+    width: 600px;
+    height: 470px;
+    border: none;
+  }
+  
+  #contentframe {
+    position: relative;
+    top: 200px;
+    right: 200px;
+  }
