@@ -11,14 +11,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height:101vh; /* Full viewport height */
-    width: 101vw;  /* Full viewport width */
+    height:98vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
    
   }
   
   iframe {
-    width: 600px;
-    height: 470px;
+    width: 590px;
+    height: 490px;
     border: none;
   }
   
@@ -27,3 +27,6 @@ body{
     top: 200px;
     right: 200px;
   }
+
+  
+  
