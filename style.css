@@ -1,32 +1,48 @@
-body{
-    background-image: url(bobwebsitepossibly.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    overflow: hidden;
+body {
+  background-image: url('bobwebsitepossibly.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  cursor: url('normal.png'), auto; /* Default cursor */
+  background-color: black;
+}
+
+/* Custom cursor for links */
+a {
+  cursor: url('hover.png'), pointer; /* Custom cursor for links */
+}
+
+/* Custom cursor for specific divs */
+.custom-div {
+  cursor: url('hover.png'), pointer;
+}
+
+/* Apply custom cursor to iframe */
+iframe {
+  cursor: url('hover.png'), pointer;
 }
 
 /* CSS to center iframe and set its dimensions */
 #iframe-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:98vh; /* Full viewport height */
-    width: 100vw;  /* Full viewport width */
-   
-  }
-  
-  iframe {
-    width: 590px;
-    height: 490px;
-    border: none;
-  }
-  
-  #contentframe {
-    position: relative;
-    top: 200px;
-    right: 200px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+}
 
-  
+iframe {
+  width: 590px;
+  height: 490px;
+  border: none;
+}
+
+#contentframe {
+  position: relative;
+  top: 200px;
+  right: 200px;
+}
+
+
   
