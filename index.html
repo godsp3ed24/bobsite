@@ -4,8 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>i seethe within this nightmare</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        body {
+            background-image: url('bobwebsitepossibly.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+            cursor: url('normal.png'), auto; /* Default cursor */
+            background-color: black;
+        }
+
+        /* Custom cursor for links */
+        a {
+            cursor: url('hover.png'), pointer; /* Custom cursor for links */
+        }
+
+        /* Custom cursor for specific divs */
+        .custom-div {
+            cursor: url('hover.png'), pointer;
+        }
+
+        /* Apply custom cursor to iframe */
+        iframe {
+            cursor: url('hover.png'), pointer;
+        }
+
+        /* CSS to center iframe and set its dimensions */
+        #iframe-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 98vh; /* Full viewport height */
+            width: 100vw;  /* Full viewport width */
+        }
+
+        iframe {
+            width: 590px;
+            height: 490px;
+            border: none;
+        }
+
+        #contentframe {
+            position: relative;
+            top: 200px;
+            right: 200px;
+        }
+
+        /* Button styling to match radio.html */
+        button {
+            position: fixed;
+            bottom: 20px; /* Space from bottom */
+            left: 20px;   /* Space from left */
+            background: none; /* No background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 0; /* Remove padding for a smaller button */
+            font-size: 20px; /* Adjust font size to match */
+            cursor: url('hover.png'), auto; /* Custom cursor with fallback */
+            text-decoration: none; /* No underline for button */
+            /* Add any additional styles from radio.html if needed */
+        }
+
+        button:hover {
+            opacity: 0.8; /* Slightly fade on hover */
+        }
+    </style>
 </head>
 <body oncontextmenu="return false">
     <div id="iframe-container">
@@ -13,19 +78,12 @@
         <div id="contentframe">
             <div class="fade-in-image">
             </div>
-            <script>
-                window.onload = function() {
-                    // Disable specific keys (U, F12, Control)
-                    document.addEventListener('keydown', function(event) {
-                        if (event.key === 'u' || event.key === 'U' || event.key === 'F12' || event.ctrlKey) {
-                            event.preventDefault();  // Prevent default behavior
-                        }
-                    });
-                        }
-            </script>
         </div>
+        <!-- Button to navigate to radio.html -->
+        <a href="radio.html" style="text-decoration: none;">
+            <button>check the radio</button>
+        </a>
     </div>
 </body>
 </html>
-
 
