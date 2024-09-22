@@ -21,35 +21,7 @@
                             event.preventDefault();  // Prevent default behavior
                         }
                     });
-
-                    // Define the valid username and password
-                    var validUsername = "imissthem65198";
-                    var validPassword = "5714265370981";
-
-                    // Check if the user is already authenticated
-                    if (localStorage.getItem('authenticated') === 'true') {
-                        alert("welcome back.");
-                        // Optionally, redirect to a different page or show more content
-                        // window.location.href = 'welcome.html'; // Example redirect
-                    } else {
-                        // Prompt the user for username and password
-                        var username = prompt("Username:");
-                        var password = prompt("Password:");
-
-                        // Check if the provided username and password match the valid ones
-                        if (username === validUsername && password === validPassword) {
-                            alert("welcome.");
-                            // Store authentication status
-                            localStorage.setItem('authenticated', 'true');
-                            // Optionally, redirect to a different page or show more content
-                            // window.location.href = 'welcome.html'; // Example redirect
-                        } else {
-                            alert("denied");
-                            // Redirect to error page
-                            window.location.href = 'error.html'; // Redirect to error page
                         }
-                    }
-                }
             </script>
         </div>
     </div>
