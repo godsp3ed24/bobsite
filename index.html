@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
 </head>
-<body>
+<body oncontextmenu="return false">
     <div id="iframe-container">
         <iframe src="terminal.html" frameborder="0"></iframe>
         <div id="contentframe">
@@ -15,9 +15,16 @@
             </div>
             <script>
                 window.onload = function() {
+                    // Disable specific keys (U, F12, Control)
+                    document.addEventListener('keydown', function(event) {
+                        if (event.key === 'u' || event.key === 'U' || event.key === 'F12' || event.ctrlKey) {
+                            event.preventDefault();  // Prevent default behavior
+                        }
+                    });
+
                     // Define the valid username and password
-                    var validUsername = "imissthem65";
-                    var validPassword = "5714265370";
+                    var validUsername = "imissthem65198";
+                    var validPassword = "5714265370981";
 
                     // Check if the user is already authenticated
                     if (localStorage.getItem('authenticated') === 'true') {
@@ -48,4 +55,5 @@
     </div>
 </body>
 </html>
+
 
