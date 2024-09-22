@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>i seethe within this nightmare</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+      body {
+        background-image: url('theradio.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        overflow: hidden;
+        cursor: url('normal.png') 16 16, auto; /* Custom cursor with fallback */
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      button {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: url('hover.png') 16 16, auto; /* Custom cursor with fallback */
+        outline: none;
+      }
+
+      button:hover {
+        color: #ccc; /* Change color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="play-button">that radio...</button>
+    <script>
+      // Array of 10 audio files with multiple formats
+      const audioFiles = [
+        { mp3: 'audio/audio1.mp3', ogg: 'audio/audio1.ogg', wav: 'audio/audio1.wav' },
+        { mp3: 'audio/audio2.mp3', ogg: 'audio/audio2.ogg', wav: 'audio/audio2.wav' },
+        { mp3: 'audio/audio3.mp3', ogg: 'audio/audio3.ogg', wav: 'audio/audio3.wav' },
+        { mp3: 'audio/audio4.mp3', ogg: 'audio/audio4.ogg', wav: 'audio/audio4.wav' },
+        { mp3: 'audio/audio5.mp3', ogg: 'audio/audio5.ogg', wav: 'audio/audio5.wav' },
+        { mp3: 'audio/audio6.mp3', ogg: 'audio/audio6.ogg', wav: 'audio/audio6.wav' },
+        { mp3: 'audio/audio7.mp3', ogg: 'audio/audio7.ogg', wav: 'audio/audio7.wav' },
+        { mp3: 'audio/audio8.mp3', ogg: 'audio/audio8.ogg', wav: 'audio/audio8.wav' },
+        { mp3: 'audio/audio9.mp3', ogg: 'audio/audio9.ogg', wav: 'audio/audio9.wav' },
+        { mp3: 'audio/audio10.mp3', ogg: 'audio/audio10.ogg', wav: 'audio/audio10.wav' }
+      ];
+
+      let currentAudio = null; // Holds the currently playing audio
+      const endSound = new Audio('audio/end-sound.mp3'); // End sound
+      const tuneSound = new Audio('audio/tune.mp3'); // Small tune to play before main audio
+
+      // Function to play a random audio file after playing the tune
+      function playRandomAudio() {
+        // Stop the current audio if it's playing
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+
+        // Play the tune first
+        tuneSound.play().then(() => {
+          tuneSound.onended = () => {
+            // After the tune ends, play the main audio
+            const randomIndex = Math.floor(Math.random() * audioFiles.length);
+            const audioData = audioFiles[randomIndex];
+            currentAudio = document.createElement('audio');
+
+            // Add sources for different formats
+            if (audioData.mp3) {
+              const sourceMp3 = document.createElement('source');
+              sourceMp3.src = audioData.mp3;
+              sourceMp3.type = 'audio/mpeg';
+              currentAudio.appendChild(sourceMp3);
+            }
+            if (audioData.ogg) {
+              const sourceOgg = document.createElement('source');
+              sourceOgg.src = audioData.ogg;
+              sourceOgg.type = 'audio/ogg';
+              currentAudio.appendChild(sourceOgg);
+            }
+            if (audioData.wav) {
+              const sourceWav = document.createElement('source');
+              sourceWav.src = audioData.wav;
+              sourceWav.type = 'audio/wav';
+              currentAudio.appendChild(sourceWav);
+            }
+
+            // Play the main audio
+            currentAudio.play().catch(error => {
+              console.error('Error playing main audio:', error);
+            });
+
+            // Play the end sound when the audio finishes
+            currentAudio.addEventListener('ended', function() {
+              endSound.play().catch(error => {
+                console.error('Error playing end sound:', error);
+              });
+            });
+          };
+        }).catch(error => {
+          console.error('Error playing tune sound:', error);
+        });
+      }
+
+      // Play new audio on button click
+      document.getElementById('play-button').addEventListener('click', function () {
+        playRandomAudio();
+      });
+    </script>
+  </body>
+</html>
