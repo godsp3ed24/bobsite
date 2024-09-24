@@ -33,8 +33,8 @@ iframe {
 }
 
 iframe {
-  width: 590px;
-  height: 490px;
+  width: 547px;
+  height: 415px;
   border: none;
 }
 
@@ -44,5 +44,20 @@ iframe {
   right: 200px;
 }
 
+/* Button styling */
+button {
+  position: fixed;
+  bottom: 20px; /* Space from bottom */
+  left: 20px;   /* Space from left */
+  background: none; /* No background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 2px 4px; /* Tiny padding */
+  font-size: 10px; /* Smaller font size */
+  cursor: pointer;
+  text-decoration: underline; /* Underline text */
+}
 
-  
+button:hover {
+  opacity: 0.8; /* Slightly fade on hover */
+}
