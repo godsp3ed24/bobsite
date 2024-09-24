@@ -36,13 +36,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 98vh; /* Full viewport height */
-            width: 100vw;  /* Full viewport width */
+            height: 93.5vh; /* Full viewport height */
+            width: 99.75vw;  /* Full viewport width */
         }
 
         iframe {
-            width: 590px;
-            height: 490px;
+            width: 547px;
+            height: 415px;
             border: none;
         }
 
@@ -64,26 +64,52 @@
             font-size: 20px; /* Adjust font size to match */
             cursor: url('hover.png'), auto; /* Custom cursor with fallback */
             text-decoration: none; /* No underline for button */
-            /* Add any additional styles from radio.html if needed */
         }
 
         button:hover {
             opacity: 0.8; /* Slightly fade on hover */
         }
+
+        /* Arrow styling */
+        .arrow-down {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%); /* Center the arrow horizontally */
+            font-size: 50px;
+            color: white;
+            cursor: url('hover.png'), auto; /* Custom cursor with fallback */
+            text-decoration: none;
+        }
+
+        .arrow-down:hover {
+            opacity: 0.8; /* Slight fade on hover */
+        }
     </style>
 </head>
 <body oncontextmenu="return false">
+    <script>
+        // Randomly decide whether to load the error page
+        const randomNumber = Math.floor(Math.random() * 100) + 1; // Generates a number between 1 and 100
+
+        if (randomNumber === 5) {
+            window.location.href = 'error.html'; // Redirect to error.html if the number is 5
+        }
+    </script>
+
     <div id="iframe-container">
         <iframe src="terminal.html" frameborder="0"></iframe>
         <div id="contentframe">
-            <div class="fade-in-image">
-            </div>
+            <div class="fade-in-image"></div>
         </div>
+        
         <!-- Button to navigate to radio.html -->
         <a href="radio.html" style="text-decoration: none;">
             <button>check the radio</button>
         </a>
+
+        <!-- Clickable arrow pointing down -->
+        <a href="file.html" class="arrow-down">↓</a>
     </div>
 </body>
 </html>
-
